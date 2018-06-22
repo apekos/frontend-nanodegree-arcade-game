@@ -1,6 +1,41 @@
-frontend-nanodegree-arcade-game
-===============================
+# Classic Arcade Game Frogger
 
-Students should use this [rubric](https://review.udacity.com/#!/projects/2696458597/rubric) for self-checking their submission. Make sure the functions you write are **object-oriented** - either class functions (like Player and Enemy) or class prototype functions such as Enemy.prototype.checkCollisions, and that the keyword 'this' is used appropriately within your class and class prototype functions to refer to the object the function is called upon. Also be sure that the **readme.md** file is updated with your instructions on both how to 1. Run and 2. Play your arcade game.
+## Table of Contents
 
-For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
+* [Description](#description)
+* [Preview](#preview)
+* [Run](#run)
+* [Instructions](#instructions)
+* [Credits](#credits)
+* [Contributing](#contributing)
+
+
+## Description
+
+This is a Udacity Front End Nanodegree project.
+
+## Preview
+
+You can play the game here: https://apekos.github.io/frontend-nanodegree-arcade-game/.
+
+## Run
+
+Download the zip file or clone via Github and then open the ìndex.html file.
+
+## Instructions
+
+* Use the arrow keys (up, down, left, right) to move the player.
+* The player must reach to the water.
+* Every time the player reaches the water he gets a point and moves back to the start position.
+* The player has 3 lives. Every time he crashes onto any of the bugs he looses one life.
+* The game is won when the player gets 5 points. 
+
+
+## Credits
+
+* I have used a collission detection method from: https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection.
+* I have used the sweetalert modal from: https://sweetalert.js.org/guides/#installation.
+
+## Contributing
+
+This repository is a Udacity Front End Nanodegree project. Pull requests (most likely) will _not_ be merged into the project.
