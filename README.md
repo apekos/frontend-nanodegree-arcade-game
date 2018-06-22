@@ -3,7 +3,6 @@
 ## Table of Contents
 
 * [Description](#description)
-* [Preview](#preview)
 * [Run](#run)
 * [Instructions](#instructions)
 * [Credits](#credits)
@@ -14,13 +13,11 @@
 
 This is a Udacity Front End Nanodegree project.
 
-## Preview
-
-You can play the game here: https://apekos.github.io/frontend-nanodegree-arcade-game/.
-
 ## Run
 
 Download the zip file or clone via Github and then open the ìndex.html file.
+
+Or you can play the game here: https://apekos.github.io/frontend-nanodegree-arcade-game/.
 
 ## Instructions
 
