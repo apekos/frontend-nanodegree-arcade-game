@@ -22,7 +22,19 @@ Enemy.prototype.update = function(dt) {
     if (this.x > 505) {
         this.x = -100;
         //Randomizing the speed after crossing the border
-        this.speed = 83 + Math.floor(Math.random() * 200);
+        this.speed = 100 + Math.floor(Math.random() * 300);
+    }
+};
+
+// Checking for collisions method from:
+// https://developer.mozilla.org/en-US/docs/Games/Techniques/2D
+Enemy.prototype.checkCollisions = function() {
+    if (this.x + 75 > player.x &&
+        this.x < player.x + 75 &&
+        this.y + 55 > player.y &&
+        this.y < player.y + 55) {
+        player.lives -= 1;
+        player.resetPosition();
     }
 };
 
@@ -39,10 +51,18 @@ class Player {
         this.x = x;
         this.y = y;
         this.sprite = 'images/char-boy.png';
+        this.score = 0;
+        this.lives = 3;
     }
 
-    update(dt) {
-
+    update() {
+        // When the player reaches the water,
+        // returns to original position.
+        if (this.y <= 0) {
+            this.y = 404;
+            this.x = 202;
+            this.score += 1;
+        }
     }
 
     render() {
@@ -60,8 +80,6 @@ class Player {
 
             case 'up': if (this.y > 0) {
                 this.y -= 83;
-            } else {
-                this.y = 404;
             }
             break;
 
@@ -75,14 +93,49 @@ class Player {
             }
         }
     }
+    // Resets player to original position
+    resetPosition () {
+        player.x = 202;
+        player.y = 404;
+    }
+
+    // Checking if the player won or not.
+    // Modal from: https://sweetalert.js.org/guides/#installation
+    endGame() {
+        if (this.score == 5) {
+            // Resetting score and lives
+            this.score = 0;
+            this.lives = 3;
+
+            // Win modal
+            swal({
+                title: "Congratulations!",
+                text: "You won!",
+                icon: "success",
+                button: "Play again!",
+            });
+        } else if (this.lives == 0) {
+            // Resetting score and lives
+            this.score = 0;
+            this.lives = 3;
+
+            //Loose modal
+            swal({
+                title: "Ooops",
+                text: "You lose!",
+                icon: "error",
+                button: "Try again",
+            });
+        }
+    }
 }
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
-let enemy1 = new Enemy(-100, 230, 100);
-let enemy2 = new Enemy(-100, 145, 150);
-let enemy3 = new Enemy(-100, 65, 200);
+let enemy1 = new Enemy(-500, 230, 300);
+let enemy2 = new Enemy(-500, 145, 200);
+let enemy3 = new Enemy(-500, 65, 250);
 let player = new Player(202, 404);
 
 allEnemies = [enemy1, enemy2, enemy3];
